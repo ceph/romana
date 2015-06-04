@@ -77,7 +77,7 @@
                                 } else if (!osd.up || !osd['in']) {
                                     state = 1;
                                 }
-                                result.push(state);
+                                result[osd.id] = state;
                                 return result;
                             }, []);
                         });
