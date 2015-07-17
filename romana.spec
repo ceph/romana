@@ -1,5 +1,5 @@
 #
-# Calamari clients Spec File
+# Romana Spec File
 #
 
 %if ! (0%{?fedora} > 12 || 0%{?rhel} > 5)
@@ -10,7 +10,7 @@
 #################################################################################
 # common
 #################################################################################
-Name:		calamari-clients
+Name:		romana
 Version: 	%{version}
 Release: 	%{?revision}%{?dist}
 Summary:	Calamari GUI front-end components
@@ -36,7 +36,7 @@ tar xfz %{tarname}
 echo "clean"
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf "$RPM_BUILD_ROOT"
 
-%files -n calamari-clients
+%files -n romana
 /opt/calamari/webapp/content
 
 %changelog

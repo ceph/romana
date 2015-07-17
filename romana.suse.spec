@@ -1,5 +1,5 @@
 #
-# spec file for package calamari-clients
+# spec file for package romana
 #
 # Copyright (c) 2014 SUSE LINUX Products GmbH, Nuernberg, Germany.
 #
@@ -16,18 +16,18 @@
 #
 
 
-# Note that the SUSE build for calamari-clients requires that someone has
+# Note that the SUSE build for romana requires that someone has
 # already generated a suitable tarball from the source tree by invoking
 # `make suse-tarball`.  This will result in a tarball named similar to
-# calamari-clients-X.Y+git.TIMESTAMP.COMMIT.tar.gz.  Don't bother with
+# romana-X.Y+git.TIMESTAMP.COMMIT.tar.gz.  Don't bother with
 # `make rpm`, just use build.opensuse.org with this spec file and the
 # appropriate tarball.
 #
 # NOTE: You will have to edit the Version tag in this spec file to match
 # your tarball, once you've checked them in to the build service.
 
-Name:           calamari-clients
-Version:        1.2+git.TIMESTAMP.COMMIT
+Name:           romana
+Version:        1.3+git.TIMESTAMP.COMMIT
 Release:        0
 Summary:        Calamari GUI front-end components
 License:        MIT
@@ -56,7 +56,7 @@ Contains the JavaScript GUI content for the Calamari frontend components
 cp -a srv %{buildroot}/
 %fdupes %{buildroot}/srv/www/calamari/content
 
-%files -n calamari-clients
+%files -n romana
 %defattr(-,root,root,-)
 /srv/www/calamari/content
 

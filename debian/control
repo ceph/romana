@@ -1,4 +1,4 @@
-Source: calamari-clients
+Source: romana
 Section: misc
 Priority: extra
 Homepage: http://www.inktank.com/
@@ -6,7 +6,7 @@ Maintainer: Inktank <info@intank.com>
 Standards-Version: 3.9.2
 Build-Depends: ruby1.9.1, ruby1.9.1-dev, make, git
 
-Package: calamari-clients
+Package: romana
 Architecture: all
 Depends: calamari-server
 Description: Inktank Calamari user interface

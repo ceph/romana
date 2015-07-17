@@ -3,14 +3,14 @@
 {% if username == 'vagrant' %}
 
 {%    set home = '/home/vagrant' %}
-{%    set gitname = 'clients' %}
+{%    set gitname = 'romana' %}
 {%    set builddir = '/home/vagrant' %}
 {%    set pkgdest = '/git' %}
 
 {% else %}
 
 {%    set home = salt['user.info'](username)['home'] %}
-{%    set gitname = 'calamari-clients' %}
+{%    set gitname = 'romana' %}
 {%    set builddir = salt['environ.get']('WORKSPACE', home) %}
 {%    set pkgdest = builddir %}
 

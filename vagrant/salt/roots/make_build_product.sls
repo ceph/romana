@@ -7,12 +7,12 @@ make_build_product:
        - REAL_BUILD: 'y'
     - cwd: {{vars.builddir}}/{{vars.gitname}}
     - require:
-      - cmd: build_calamari_clients
+      - cmd: build_romana
 
 copyout_build_product:
    cmd.run:
      - user: {{vars.username}}
-     - name: cp calamari-clients*tar.gz {{vars.pkgdest}}
+     - name: cp romana*tar.gz {{vars.pkgdest}}
      - cwd: {{vars.builddir}}/{{vars.gitname}}
      - require:
        - cmd: make_build_product
