@@ -6,6 +6,7 @@ SRC := $(shell pwd)
 
 # set these only if not set with ?=
 VERSION ?= $(shell $(SRC)/get-versions.sh VERSION)
+DIST_VERSION ?= "~"$(shell sed '/CODENAME/!d;s/^.*=//' /etc/lsb-release)"1"
 REVISION ?= $(shell $(SRC)/get-versions.sh REVISION)
 BUILD_PRODUCT_TGZ=$(SRC)/calamari-clients-build-output.tar.gz
 
@@ -45,7 +46,7 @@ default: build
 DATESTR=$(shell /bin/echo -n "built on "; date)
 set_deb_version:
 	DEBEMAIL=$(DEBEMAIL) dch \
-		--newversion $(VERSION)-$(REVISION)$(BPTAG) \
+		--newversion $(VERSION)-$(REVISION)$(BPTAG)$(DIST_VERSION) \
 		-D $(DIST) --force-bad-version --force-distribution "$(DATESTR)"
 
 build:
