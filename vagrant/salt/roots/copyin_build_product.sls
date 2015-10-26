@@ -2,5 +2,5 @@
 
 copyin_build_product:
   cmd.run:
-    - name: cp {{vars.pkgdest}}/calamari-clients*tar.gz {{vars.builddir}}/{{vars.gitname}}
+    - name: cp {{vars.pkgdest}}/romana*tar.gz {{vars.builddir}}/{{vars.gitname}}
     - user: {{vars.username}}

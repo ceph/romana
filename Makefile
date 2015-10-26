@@ -7,7 +7,7 @@ SRC := $(shell pwd)
 # set these only if not set with ?=
 VERSION ?= $(shell $(SRC)/get-versions.sh VERSION)
 REVISION ?= $(shell $(SRC)/get-versions.sh REVISION)
-BUILD_PRODUCT_TGZ=$(SRC)/calamari-clients-build-output.tar.gz
+BUILD_PRODUCT_TGZ=$(SRC)/romana-build-output.tar.gz
 
 RPM_REVISION ?= $(shell $(SRC)/get-versions.sh -r REVISION)
 RPMBUILD=$(SRC)/../rpmbuild
@@ -18,12 +18,12 @@ DEBEMAIL ?= dan.mick@inktank.com
 ARCH ?= x86_64
 
 TSCOMMIT=$(shell git log -n1 --pretty=format:"%ct.%h")
-SUSE_PKG=calamari-clients-$(VERSION)+git.$(TSCOMMIT)
+SUSE_PKG=romana-$(VERSION)+git.$(TSCOMMIT)
 SUSE_DEST=/srv/www/calamari
 SUSE_TAR=$(SUSE_PKG).tar.gz
 
-DISTNAMEVER=calamari-clients_$(VERSION)
-PKGDIR=calamari-clients-$(VERSION)
+DISTNAMEVER=romana_$(VERSION)
+PKGDIR=romana-$(VERSION)
 TARNAME = ../$(DISTNAMEVER).tar.gz
 
 INSTALL=/usr/bin/install
@@ -93,7 +93,7 @@ dpkg: set_deb_version
 build-product:
 	if [ "$(REAL_BUILD)" = y ] ; then \
 		( \
-		cd debian/calamari-clients; \
+		cd debian/romana; \
 		tar cvfz $(BUILD_PRODUCT_TGZ) opt ; \
 		) \
 	fi
@@ -103,10 +103,10 @@ build-product:
 
 rpm:
 	mkdir -p $(RPMBUILD)/{SPECS,RPMS,BUILDROOT}
-	cp clients.spec $(RPMBUILD)/SPECS
+	cp romana.spec $(RPMBUILD)/SPECS
 	( \
 	cd $(RPMBUILD); \
-	rpmbuild -bb --define "_topdir $(RPMBUILD)" --define "version $(VERSION)" --define "revision $(RPM_REVISION)" --define "tarname $(BUILD_PRODUCT_TGZ)" SPECS/clients.spec; \
+	rpmbuild -bb --define "_topdir $(RPMBUILD)" --define "version $(VERSION)" --define "revision $(RPM_REVISION)" --define "tarname $(BUILD_PRODUCT_TGZ)" SPECS/romana.spec; \
 	)
 
 # either put the build files into $DESTDIR on Ubuntu, or
@@ -130,7 +130,7 @@ install: build
 # then packs everything into a tarball like the install target above,
 # except it's created in the .tmp subdirectory of the source tree, and
 # packed with a name in the form:
-#   calamari-clients-1.2+git.1406029226.d2b9ccc.tar.bz",
+#   romana-1.2+git.1406029226.d2b9ccc.tar.bz",
 # i.e. the commit timestamp and hash are included in the tarball name.
 # Note: the directory structure here is /srv/www/calamari, to follow
 # SUSE packaging conventions for web apps.

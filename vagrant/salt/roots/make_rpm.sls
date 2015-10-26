@@ -1,5 +1,5 @@
 {% import 'setvars' as vars with context %}
-build_calamari_clients:
+build_romana:
   cmd.run:
     - name: make rpm
     - user: {{vars.username}}
@@ -9,10 +9,10 @@ build_calamari_clients:
       - git: git_clone
 {%- endif %}
 
-copy_calamari_clients:
+copy_romana:
   cmd.run:
-    - name: cp rpmbuild/RPMS/x86_64/calamari-clients*.rpm {{vars.pkgdest}}
+    - name: cp rpmbuild/RPMS/x86_64/romana*.rpm {{vars.pkgdest}}
     - cwd: {{vars.builddir}}
     - require:
-      - cmd: build_calamari_clients
+      - cmd: build_romana
 

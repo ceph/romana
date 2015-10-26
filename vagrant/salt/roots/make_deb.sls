@@ -2,7 +2,7 @@
 devscripts:
   pkg.installed
 
-build_calamari_clients:
+build_romana:
   cmd.run:
     - user: {{vars.username}}
     - name: make dpkg
@@ -14,10 +14,10 @@ build_calamari_clients:
       - pkg: devscripts
 
 {% if vars.username == 'vagrant' %}
-copy_calamari_clients:
+copy_romana:
   cmd.run:
-    - name: cp calamari-clients*.deb {{vars.pkgdest}}
+    - name: cp romana*.deb {{vars.pkgdest}}
     - cwd: {{vars.builddir}}
     - require:
-      - cmd: build_calamari_clients
+      - cmd: build_romana
 {% endif %}

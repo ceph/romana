@@ -42,15 +42,15 @@ Assumptions
 How to Build Clients
 ============
 
-**Note**: *These instructions are deliberately non-system specific. Please visit the [wiki](https://github.com/ceph/calamari-clients/wiki) and help us write better more distro and release specific instructions.*
+**Note**: *These instructions are deliberately non-system specific. Please visit the [wiki](https://github.com/ceph/romana/wiki) and help us write better more distro and release specific instructions.*
 
 1. install **nodejs**, a recent version like 0.10.
 2. install **npm**, a recent version (1.4 cause troubles building package, use sudo npm install -g npm@next)
 3. install `grunt-cli` globally via `npm`
 4. Ruby gem and `compass` via `gem`
 5. make sure your system has a recent gnu compatible `make` binary
-4. checkout the code `git clone git@github.com:ceph/calamari-clients.git`
-5. cd into `calamari-clients`
+4. checkout the code `git clone git@github.com:ceph/romana.git`
+5. cd into `romana`
 6. to build: `make dist`
 
 This will build all the modules.
@@ -130,6 +130,6 @@ Build notes
 Since build output is really distro-independent, the build is structured to
 build only on one distro (Ubuntu Precise, by default) in the Vagrant setups
 under vagrant/.  Build first with vagrant/precise-build, and the resultant
-sources are placed into a tarball "calamari-clients-build-output.tar.gz";
+sources are placed into a tarball "romana-build-output.tar.gz";
 then that tarball is used to feed the rest of the distro builds, which
 are really just repackaging.

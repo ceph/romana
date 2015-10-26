@@ -5,6 +5,7 @@
 *.swp
 *.swo
 calamari-clients*.tar.gz
+romana*.tar.gz
 **/.sass-cache
 **/.tmp
 **/dist

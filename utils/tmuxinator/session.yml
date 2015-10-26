@@ -22,7 +22,7 @@ windows:
   - editor:
       layout: main-vertical
       panes:
-        - /clients.git/utils/21-run-calamari.sh
-        - /clients.git/utils/31-run-sim.sh
+        - /romana.git/utils/21-run-calamari.sh
+        - /romana.git/utils/31-run-sim.sh
         - tail -F ~/calamari/dev/calamari.log
         - zsh
